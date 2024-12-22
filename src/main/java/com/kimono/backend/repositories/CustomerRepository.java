@@ -1,4 +1,4 @@
-package com.kimono.backend.repository;
+package com.kimono.backend.repositories;
 
 import com.kimono.backend.domain.entities.CustomerEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
