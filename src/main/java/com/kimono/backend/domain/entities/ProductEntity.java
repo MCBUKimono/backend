@@ -43,7 +43,7 @@ public class ProductEntity {
     @ManyToOne
     private CategoryEntity category;
 
-    private Double avarageScoreOutOf100;
+    private Double averageScoreOutOf100;
 
     private Integer priceCents;
     private Integer taxPer1000;
