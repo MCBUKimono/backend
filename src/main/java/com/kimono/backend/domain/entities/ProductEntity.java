@@ -1,8 +1,8 @@
 package com.kimono.backend.domain.entities;
 
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,13 +31,13 @@ public class ProductEntity {
 
     private String name;
 
-    @ManyToOne
-    private BrandEntity brand;
-
     @Lob
     private String description;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @ManyToOne
+    private BrandEntity brand;
+
+    @OneToMany(mappedBy = "product",fetch = FetchType.LAZY)
     private List<ProductImageEntity> images;
 
     @ManyToOne
