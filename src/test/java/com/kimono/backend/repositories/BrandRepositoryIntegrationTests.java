@@ -1,7 +1,7 @@
 package com.kimono.backend.repositories;
 
 
-import com.kimono.backend.TestSeed.TestData;
+import com.kimono.backend.TestSeed.TestDataUtil;
 import com.kimono.backend.domain.entities.BrandEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,7 +29,7 @@ public class BrandRepositoryIntegrationTests {
 
     @Test
     public void testThatBrandCanBeCreatedAndRecalled() {
-        BrandEntity brandEntity = TestData.createBrandEntity4();
+        BrandEntity brandEntity = TestDataUtil.createTestBrandA();
         underTest.save(brandEntity);
         Optional<BrandEntity> result = underTest.findById(brandEntity.getId());
         assertThat(result).isPresent();
@@ -38,22 +38,20 @@ public class BrandRepositoryIntegrationTests {
 
     @Test
     public void testThatMultipleBrandsCanBeCreatedAndRecalled() {
-        BrandEntity brandEntity1 = TestData.createBrandEntity1();
+        BrandEntity brandEntity1 = TestDataUtil.createTestBrandA();
         underTest.save(brandEntity1);
-        BrandEntity brandEntity2 = TestData.createBrandEntity2();
+        BrandEntity brandEntity2 = TestDataUtil.createTestBrandB();
         underTest.save(brandEntity2);
-        BrandEntity brandEntity3 = TestData.createBrandEntity3();
-        underTest.save(brandEntity3);
 
         List<BrandEntity> result = underTest.findAll();
         assertThat(result)
-                .hasSize(3).
-                containsExactly(brandEntity1, brandEntity2, brandEntity3);
+                .hasSize(2).
+                containsExactly(brandEntity1, brandEntity2);
     }
 
     @Test
     public void testThatBrandCanBeUpdated() {
-        BrandEntity brandEntity1 = TestData.createBrandEntity1();
+        BrandEntity brandEntity1 = TestDataUtil.createTestBrandA();
         underTest.save(brandEntity1);
         brandEntity1.setName("UPDATED");
         underTest.save(brandEntity1);
@@ -65,7 +63,7 @@ public class BrandRepositoryIntegrationTests {
 
     @Test
     public void testThatBrandCanBeDeleted() {
-        BrandEntity brandEntity1 = TestData.createBrandEntity1();
+        BrandEntity brandEntity1 = TestDataUtil.createTestBrandA();
         underTest.save(brandEntity1);
         underTest.deleteById(brandEntity1.getId());
         Optional<BrandEntity> result = underTest.findById(brandEntity1.getId());
@@ -74,11 +72,10 @@ public class BrandRepositoryIntegrationTests {
 
     @Test
     public void testThatGetBrandsWithName() {
-        BrandEntity brandEntity1 = TestData.createBrandEntity1();
+        BrandEntity brandEntity1 = TestDataUtil.createTestBrandA();
         underTest.save(brandEntity1);
-        Optional<BrandEntity> result = underTest.findByName("Adidas");
-        assertThat(result).isPresent();
-        assertThat(result.get()).isEqualTo(brandEntity1);
+        List<BrandEntity> result = underTest.findByName(brandEntity1.getName());
+        assertThat(result).containsExactly(brandEntity1);
     }
 
 }
