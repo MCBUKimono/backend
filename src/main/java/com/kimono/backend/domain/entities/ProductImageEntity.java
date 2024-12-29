@@ -30,4 +30,5 @@ public class ProductImageEntity {
 
     private Integer displayOrder;
 
+    private String url;//TODO: image url
 }

@@ -3,6 +3,8 @@ package com.kimono.backend.TestSeed;
 import com.kimono.backend.domain.dto.*;
 import com.kimono.backend.domain.entities.*;
 
+import java.util.List;
+
 public final class TestDataUtil {
     private TestDataUtil(){
     }
@@ -34,14 +36,14 @@ public final class TestDataUtil {
 
     public static ProductImageDto createTestProductImageDtoA(){
         return ProductImageDto.builder()
-                .product(null)
+                .productId(null)
                 .displayOrder(123123)
                 .build();
     }
 
     public static ProductImageDto createTestProductImageDtoB(){
         return ProductImageDto.builder()
-                .product(null)
+                .productId(null)
                 .displayOrder(123123)
                 .build();
     }
