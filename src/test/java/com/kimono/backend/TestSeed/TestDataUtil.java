@@ -19,4 +19,16 @@ public final class TestDataUtil {
                 .build();
     }
 
+    public static CategoryEntity createTestCategoryEntityA() {
+        return CategoryEntity.builder()
+                .name("Elektdronik")
+                .build();
+    }
+
+    public static CategoryDto createTestCategoryDtoA() {
+        return CategoryDto.builder()
+                .name("Elektdronik")
+                .build();
+    }
+
 }
