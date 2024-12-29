@@ -19,6 +19,33 @@ public final class TestDataUtil {
                 .build();
     }
 
+    public static ProductImageEntity createTestProductImageEntityA(){
+        return ProductImageEntity.builder()
+                .product(null)
+                .displayOrder(123123)
+                .build();
+    }
+    public static ProductImageEntity createTestProductImageEntityB(){
+        return ProductImageEntity.builder()
+                .product(null)
+                .displayOrder(123123)
+                .build();
+    }
+
+    public static ProductImageDto createTestProductImageDtoA(){
+        return ProductImageDto.builder()
+                .product(null)
+                .displayOrder(123123)
+                .build();
+    }
+
+    public static ProductImageDto createTestProductImageDtoB(){
+        return ProductImageDto.builder()
+                .product(null)
+                .displayOrder(123123)
+                .build();
+    }
+
     public static CategoryEntity createTestCategoryEntityA() {
         return CategoryEntity.builder()
                 .name("Elektdronik")
@@ -28,6 +55,34 @@ public final class TestDataUtil {
     public static CategoryDto createTestCategoryDtoA() {
         return CategoryDto.builder()
                 .name("Elektdronik")
+                .build();
+    }
+
+    public static ProductEntity createTestProductA(){
+        return ProductEntity.builder()
+                .name("Telefon")
+                .description("Akıllı Telefon")
+//                .brand(createTestBrandA())
+//                .images(List.of(createTestProductImageEntityA(),createTestProductImageEntityB()))
+//                .category(createTestCategoryEntityA())
+                .averageScoreOutOf100(11.2)
+                .priceCents(10000)
+                .taxPer1000(10)
+                .discountPer1000(100)
+                .build();
+    }
+
+    public static ProductDto createTestProductDtoA(){
+        return ProductDto.builder()
+                .name("Telefon")
+                .description("Akıllı Telefon")
+//                .brand(createTestBrandDtoA())
+//                .images(List.of(createTestProductImageDtoA(),createTestProductImageDtoB()))
+//                .category(createTestCategoryDtoA())
+                .averageScoreOutOf100(11.2)
+                .priceCents(10000)
+                .taxPer1000(10)
+                .discountPer1000(100)
                 .build();
     }
 
