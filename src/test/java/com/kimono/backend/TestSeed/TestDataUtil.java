@@ -3,7 +3,6 @@ package com.kimono.backend.TestSeed;
 import com.kimono.backend.domain.dto.*;
 import com.kimono.backend.domain.entities.*;
 
-import java.util.List;
 
 public final class TestDataUtil {
     private TestDataUtil(){
@@ -101,6 +100,33 @@ public final class TestDataUtil {
                 .priceCents(10000)
                 .taxPer1000(10)
                 .discountPer1000(100)
+                .build();
+    }
+
+    public static ReviewImageEntity createTestReviewImageEntityA(){
+        return ReviewImageEntity.builder()
+                .review(null)
+                .displayOrder(123123)
+                .build();
+    }
+    public static ReviewImageEntity createTestReviewImageEntityB(){
+        return ReviewImageEntity.builder()
+                .review(null)
+                .displayOrder(123123)
+                .build();
+    }
+
+    public static ReviewImageDto createTestReviewImageDtoA(){
+        return ReviewImageDto.builder()
+                .reviewId(null)
+                .displayOrder(123123)
+                .build();
+    }
+
+    public static ReviewImageDto createTestReviewImageDtoB(){
+        return ReviewImageDto.builder()
+                .reviewId(null)
+                .displayOrder(123123)
                 .build();
     }
 

@@ -27,4 +27,7 @@ public class ReviewImageEntity {
     private ReviewEntity review;
 
     private Integer displayOrder;
+
+    private String url;
+
 }
