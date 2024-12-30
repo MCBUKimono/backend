@@ -3,6 +3,7 @@ package com.kimono.backend.TestSeed;
 import com.kimono.backend.domain.dto.*;
 import com.kimono.backend.domain.entities.*;
 import com.kimono.backend.domain.enums.OrderStatus;
+import com.kimono.backend.domain.enums.PaymentMethod;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -226,4 +227,38 @@ public final class TestDataUtil {
                 .orders(List.of()) // Testte gerekirse OrderEntity eklenebilir
                 .build();
     }*/
+
+    public static InvoiceEntity createTestInvoiceEntity() {
+        return InvoiceEntity.builder()
+                .customer(null)
+                .invoiceNumber(123456)
+                .invoiceAddress("123 Test St")
+                .invoiceName("John Doe")
+                .paymentMethod(PaymentMethod.CREDIT_CARD)
+                .totalAmountCents(15000)
+                .productSnapshotEntities(null)
+                .build();
+    }
+
+    public static InvoiceDto createTestInvoiceDto() {
+        return InvoiceDto.builder()
+                .customerId(null)
+                .invoiceNumber(123456)
+                .invoiceAddress("123 Test St")
+                .invoiceName("John Doe")
+                .paymentMethod(PaymentMethod.CREDIT_CARD)
+                .totalAmountCents(15000)
+                .productSnapshotIds(List.of(1))
+                .build();
+    }
+
+    /*public static ProductSnapshotEntity createTestProductSnapshotEntity() {
+        return ProductSnapshotEntity.builder()
+                .product(createTestProductA())
+                .priceCents(10000)
+                .taxPer1000(200)
+                .discountPer1000(500)
+                .build();
+    }*/
+
 }

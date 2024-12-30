@@ -41,4 +41,7 @@ public class InvoiceEntity {
 
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
+
+    private Integer totalAmountCents;
+
 }
