@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CategoryMapperImpl implements Mapper<CategoryEntity, CategoryDto> {
-
     private final ModelMapper modelMapper;
 
     public CategoryMapperImpl(ModelMapper modelMapper) {

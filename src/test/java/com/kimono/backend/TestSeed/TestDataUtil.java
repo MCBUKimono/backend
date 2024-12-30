@@ -2,6 +2,7 @@ package com.kimono.backend.TestSeed;
 
 import com.kimono.backend.domain.dto.*;
 import com.kimono.backend.domain.entities.*;
+import com.kimono.backend.domain.enums.OrderStatus;
 
 import java.time.LocalDateTime;
 
@@ -145,6 +146,26 @@ public final class TestDataUtil {
                 .customerId(null) // Test senaryolarında gerçek bir müşteri ID kullanılabilir
                 .token("test-token")
                 .expirationDate(LocalDateTime.now().plusDays(1))
+                .build();
+    }
+
+    public static OrderEntity createTestOrderEntity() {
+        return OrderEntity.builder()
+                .shippingAddress("123 Test Street")
+                .shippingName("John Doe")
+                .trackingCode("TRACK123")
+                .status(OrderStatus.READY_FOR_SHIPPING)
+                .customer(null) // Gerekirse CustomerEntity ile bağlayabilirsiniz
+                .build();
+    }
+
+    public static OrderDto createTestOrderDto() {
+        return OrderDto.builder()
+                .shippingAddress("123 Test Street")
+                .shippingName("John Doe")
+                .trackingCode("TRACK123")
+                .status(OrderStatus.SHIPPED)
+                .customerId(null) // Gerekirse müşteri ID ekleyebilirsiniz
                 .build();
     }
 

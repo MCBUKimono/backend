@@ -34,7 +34,6 @@ public class SessionServiceImpl implements SessionService {
 
     @Override
     public void deleteSessionById(Integer id) {
-
         if(doesNotExist(id)){
             throw new EntityNotFoundException();
         }
