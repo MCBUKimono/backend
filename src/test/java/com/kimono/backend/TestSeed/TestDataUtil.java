@@ -5,6 +5,7 @@ import com.kimono.backend.domain.entities.*;
 import com.kimono.backend.domain.enums.OrderStatus;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 public final class TestDataUtil {
@@ -185,4 +186,44 @@ public final class TestDataUtil {
                 .favoriteProductIds(null) // Test senaryosunda gerekirse bir liste eklenebilir
                 .build();
     }
+    public static ReviewEntity createTestReviewEntity() {
+        return ReviewEntity.builder()
+                .product(null) // Test bir ProductEntity kullanabilirsiniz
+                .customer(null) // Test bir CustomerEntity kullanabilirsiniz
+                .images(List.of()) // Testte gerekirse ReviewImageEntity eklenebilir
+                .text("This is a test review.")
+                .scoreOutOf100(85)
+                .build();
+    }
+
+    // ReviewDto için test verisi oluşturma
+    public static ReviewDto createTestReviewDto() {
+        return ReviewDto.builder()
+                .productId(null) // Mevcut bir ProductEntity ID kullanabilirsiniz
+                .customerId(null) // Mevcut bir CustomerEntity ID kullanabilirsiniz
+                .imageIds(null) // Testte gerekirse ReviewImageEntity ID'leri eklenebilir
+                .text("This is a test review DTO.")
+                .scoreOutOf100(85)
+                .build();
+    }
+    /*public static ProductEntity createTestProductEntityA() {
+        return ProductEntity.builder()
+                .name("Test Product")
+                .description("This is a test product.")
+                .priceCents(10000)
+                .taxPer1000(100)
+                .discountPer1000(500)
+                .averageScoreOutOf100(80.0)
+                .build();
+    }*/
+
+    /*// CustomerEntity için test verisi oluşturma
+    public static CustomerEntity createTestCustomerEntityA() {
+        return CustomerEntity.builder()
+                .name("John Doe")
+                .passwordHash("hashedpassword")
+                .favoriteProducts(List.of()) // Testte gerekirse ProductEntity eklenebilir
+                .orders(List.of()) // Testte gerekirse OrderEntity eklenebilir
+                .build();
+    }*/
 }
