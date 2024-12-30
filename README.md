@@ -2,6 +2,46 @@
 
 Kimono backend API
 
+## Precondition
+
+To run the application, ensure you have the following preconditions met:
+
+1. A PostgreSQL database setup with the following configuration:
+    - Database Name: `kimono`
+    - Username: `kimono`
+    - Password: `password`
+
+### Setting up PostgreSQL Database
+
+Follow these steps to set up the required PostgreSQL database:
+
+1. Log in to your PostgreSQL server:
+   ```bash
+   psql -U postgres
+   ```
+
+2. Create a new database named `kimono`:
+   ```sql
+   CREATE DATABASE kimono;
+   ```
+
+3. Create a new user with the username `kimono` and password `password`:
+   ```sql
+   CREATE USER kimono WITH PASSWORD 'password';
+   ```
+
+4. Grant all privileges on the `kimono` database to the `kimono` user:
+   ```sql
+   GRANT ALL PRIVILEGES ON DATABASE kimono TO kimono;
+   ```
+
+5. Exit the PostgreSQL prompt:
+   ```bash
+   \q
+   ```
+
+Your PostgreSQL database is now ready to use with the application.
+
 ## Directory Structure
 
 - `src/`: The main source code of the project
@@ -45,15 +85,6 @@ mvn clean install
 mvn spring-boot:run
 ```
 
-## Other Commands
-
-```bash
-mvn clean         # Clean up compiled files and artifacts
-mvn test          # Run all tests
-mvn compile       # Compile the project
-mvn package       # Package the application (JAR/WAR)
-```
-
 ## Testing
 
 Unit and integration tests are written using JUnit. Run the tests using Maven:
@@ -79,8 +110,3 @@ The API documentation is automatically generated using Swagger and can be access
 ```
 http://localhost:8080/swagger-ui.html
 ```
-
-## Configuration
-
-The application properties are managed in the `application.properties` file under the `resources/` directory. Update the database connection and other settings as required.
-
