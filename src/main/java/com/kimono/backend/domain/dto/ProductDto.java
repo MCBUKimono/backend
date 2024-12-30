@@ -18,11 +18,11 @@ public class ProductDto {
 
     private String description;
 
-    private BrandDto brand;
+    private Integer brandId;
 
-    private List<ProductImageDto> images;
+    private List<Integer> imagesId;
 
-    private CategoryDto category;
+    private Integer categoryId;
 
     private Double averageScoreOutOf100;
 
