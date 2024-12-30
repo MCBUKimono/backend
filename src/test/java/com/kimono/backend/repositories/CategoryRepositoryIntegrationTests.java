@@ -1,7 +1,8 @@
 package com.kimono.backend.repositories;
 
-import com.kimono.backend.TestSeed.TestData;
+import com.kimono.backend.TestSeed.TestDataUtil;
 import com.kimono.backend.domain.entities.CategoryEntity;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,9 @@ public class CategoryRepositoryIntegrationTests {
     }
 
     @Test
+    @Transactional
     public void testThatCategoryCanBeCreatedAndRecalled() {
-        CategoryEntity categoryEntity = TestData.createCategoryEntity1();
+        CategoryEntity categoryEntity = TestDataUtil.createTestCategoryEntityA();
         underTest.save(categoryEntity);
         Optional<CategoryEntity> result = underTest.findById(categoryEntity.getId());
         assertThat(result).isPresent();
@@ -36,12 +38,13 @@ public class CategoryRepositoryIntegrationTests {
     }
 
     @Test
+    @Transactional
     public void testThatMultipleCategoriesCanBeCreatedAndRecalled() {
-        CategoryEntity category1 = TestData.createCategoryEntity1();
+        CategoryEntity category1 = TestDataUtil.createTestCategoryEntityA();
         underTest.save(category1);
-        CategoryEntity category2 = TestData.createCategoryEntity2();
+        CategoryEntity category2 = TestDataUtil.createTestCategoryEntityB();
         underTest.save(category2);
-        CategoryEntity category3 = TestData.createCategoryEntity3();
+        CategoryEntity category3 = TestDataUtil.createTestCategoryEntityC();
         underTest.save(category3);
 
         List<CategoryEntity> result = underTest.findAll();
@@ -51,8 +54,9 @@ public class CategoryRepositoryIntegrationTests {
     }
 
     @Test
+    @Transactional
     public void testThatCategoryCanBeUpdated() {
-        CategoryEntity category = TestData.createCategoryEntity1();
+        CategoryEntity category = TestDataUtil.createTestCategoryEntityA();
         underTest.save(category);
         category.setName("UPDATED");
         underTest.save(category);
@@ -62,8 +66,9 @@ public class CategoryRepositoryIntegrationTests {
     }
 
     @Test
+    @Transactional
     public void testThatCategoryCanBeDeleted() {
-        CategoryEntity category = TestData.createCategoryEntity1();
+        CategoryEntity category = TestDataUtil.createTestCategoryEntityA();
         underTest.save(category);
         underTest.deleteById(category.getId());
         Optional<CategoryEntity> result = underTest.findById(category.getId());
@@ -71,10 +76,11 @@ public class CategoryRepositoryIntegrationTests {
     }
 
     @Test
+    @Transactional
     public void testThatGetCategoriesByName() {
-        CategoryEntity category = TestData.createCategoryEntity1();
+        CategoryEntity category = TestDataUtil.createTestCategoryEntityA();
         underTest.save(category);
-        Optional<CategoryEntity> result = underTest.findByName("Electronics");
+        Optional<CategoryEntity> result = underTest.findByName(category.getName());
         assertThat(result).isPresent();
         assertThat(result.get()).isEqualTo(category);
     }

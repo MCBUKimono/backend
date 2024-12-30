@@ -15,6 +15,12 @@ public final class TestDataUtil {
                 .build();
     }
 
+    public static BrandEntity createTestBrandB(){
+        return BrandEntity.builder()
+                .name("Apple")
+                .build();
+    }
+
     public static BrandDto createTestBrandDtoA() {
         return BrandDto.builder()
                 .name("Samsung")
@@ -50,7 +56,17 @@ public final class TestDataUtil {
 
     public static CategoryEntity createTestCategoryEntityA() {
         return CategoryEntity.builder()
-                .name("Elektdronik")
+                .name("Telefon")
+                .build();
+    }
+    public static CategoryEntity createTestCategoryEntityB() {
+        return CategoryEntity.builder()
+                .name("Bilgisayar")
+                .build();
+    }
+    public static CategoryEntity createTestCategoryEntityC() {
+        return CategoryEntity.builder()
+                .name("Yardımcı araçlar")
                 .build();
     }
 
