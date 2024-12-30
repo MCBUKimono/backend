@@ -28,6 +28,7 @@ public class ProductImageController {
 
     @PostMapping
     public ResponseEntity<ProductImageDto> createProductImage(@RequestBody ProductImageDto productImageDto) {
+        productImageDto.setId(null);
         ProductImageEntity productImageEntity = mapper.mapFrom(productImageDto);
         ProductImageEntity savedProductImage = productImageService.save(productImageEntity);
         return new ResponseEntity<>(mapper.mapTo(savedProductImage), HttpStatus.CREATED);

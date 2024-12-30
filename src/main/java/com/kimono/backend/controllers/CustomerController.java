@@ -28,6 +28,7 @@ public class CustomerController {
 
     @PostMapping
     public ResponseEntity<CustomerDto> createCustomer(@RequestBody CustomerDto customerDto) {
+        customerDto.setId(null);
         CustomerEntity customerEntity = mapper.mapFrom(customerDto);
         CustomerEntity savedCustomer = customerService.save(customerEntity);
         return new ResponseEntity<>(mapper.mapTo(savedCustomer), HttpStatus.CREATED);

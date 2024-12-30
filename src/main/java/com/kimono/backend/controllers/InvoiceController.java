@@ -28,6 +28,7 @@ public class InvoiceController {
 
     @PostMapping
     public ResponseEntity<InvoiceDto> createInvoice(@RequestBody InvoiceDto invoiceDto) {
+        invoiceDto.setId(null);
         InvoiceEntity invoiceEntity = mapper.mapFrom(invoiceDto);
         InvoiceEntity savedInvoice = invoiceService.save(invoiceEntity);
         return new ResponseEntity<>(mapper.mapTo(savedInvoice), HttpStatus.CREATED);

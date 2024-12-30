@@ -27,6 +27,7 @@ public class BrandController {
 
     @PostMapping(path = "/brand")
     public ResponseEntity<BrandDto> createBrand(@RequestBody BrandDto brandDto) {
+        brandDto.setId(null);
         BrandEntity brandEntity = mapper.mapFrom(brandDto);
         BrandEntity savedBrandEntity = brandService.save(brandEntity);
         return new ResponseEntity<>(mapper.mapTo(savedBrandEntity), HttpStatus.CREATED);

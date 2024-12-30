@@ -28,6 +28,7 @@ public class ProductSnapshotController {
 
     @PostMapping
     public ResponseEntity<ProductSnapshotDto> createSnapshot(@RequestBody ProductSnapshotDto snapshotDto) {
+        snapshotDto.setId(null);
         ProductSnapshotEntity snapshotEntity = mapper.mapFrom(snapshotDto);
         ProductSnapshotEntity savedSnapshot = snapshotService.save(snapshotEntity);
         return new ResponseEntity<>(mapper.mapTo(savedSnapshot), HttpStatus.CREATED);

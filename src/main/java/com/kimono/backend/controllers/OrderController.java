@@ -28,6 +28,7 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<OrderDto> createOrder(@RequestBody OrderDto orderDto) {
+        orderDto.setId(null);
         OrderEntity orderEntity = mapper.mapFrom(orderDto);
         OrderEntity savedOrder = orderService.save(orderEntity);
         return new ResponseEntity<>(mapper.mapTo(savedOrder), HttpStatus.CREATED);

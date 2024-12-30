@@ -27,6 +27,7 @@ public class CategoryController {
 
     @PostMapping(path = "/category")
     public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categoryDto) {
+        categoryDto.setId(null);
         CategoryEntity categoryEntity = mapper.mapFrom(categoryDto);
         CategoryEntity savedCategoryEntity = categoryService.save(categoryEntity);
         return new ResponseEntity<>(mapper.mapTo(savedCategoryEntity), HttpStatus.CREATED);

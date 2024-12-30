@@ -28,6 +28,7 @@ public class ReviewImageController {
 
     @PostMapping
     public ResponseEntity<ReviewImageDto> createReviewImage(@RequestBody ReviewImageDto reviewImageDto) {
+        reviewImageDto.setId(null);
         ReviewImageEntity reviewImageEntity = mapper.mapFrom(reviewImageDto);
         ReviewImageEntity savedReviewImage = reviewImageService.save(reviewImageEntity);
         return new ResponseEntity<>(mapper.mapTo(savedReviewImage), HttpStatus.CREATED);

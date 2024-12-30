@@ -28,6 +28,7 @@ public class SessionController {
 
     @PostMapping
     public ResponseEntity<SessionDto> createSession(@RequestBody SessionDto sessionDto) {
+        sessionDto.setId(null);
         SessionEntity sessionEntity = mapper.mapFrom(sessionDto);
         SessionEntity savedSession = sessionService.save(sessionEntity);
         return new ResponseEntity<>(mapper.mapTo(savedSession), HttpStatus.CREATED);

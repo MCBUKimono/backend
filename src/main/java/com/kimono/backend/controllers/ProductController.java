@@ -34,6 +34,7 @@ public class ProductController {
 
     @PostMapping(path = "/product")
     public ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto productDto) {
+        productDto.setId(null);
         ProductEntity productEntity = mapper.mapFrom(productDto);
         ProductEntity savedProductEntity = productService.save(productEntity);
         return new ResponseEntity<>(mapper.mapTo(savedProductEntity), HttpStatus.CREATED);

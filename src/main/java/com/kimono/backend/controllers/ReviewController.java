@@ -28,6 +28,7 @@ public class ReviewController {
 
     @PostMapping
     public ResponseEntity<ReviewDto> createReview(@RequestBody ReviewDto reviewDto) {
+        reviewDto.setId(null);
         ReviewEntity reviewEntity = mapper.mapFrom(reviewDto);
         ReviewEntity savedReview = reviewService.save(reviewEntity);
         return new ResponseEntity<>(mapper.mapTo(savedReview), HttpStatus.CREATED);
