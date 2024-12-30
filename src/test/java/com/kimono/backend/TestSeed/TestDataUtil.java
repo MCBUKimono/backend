@@ -169,4 +169,20 @@ public final class TestDataUtil {
                 .build();
     }
 
+    public static CustomerEntity createTestCustomerEntity() {
+        return CustomerEntity.builder()
+                .name("John Doe")
+                .passwordHash("hashedpassword")
+                .favoriteProducts(null) // Test senaryosunda gerekirse bir liste eklenebilir
+                .orders(null) // Test senaryosunda gerekirse bir liste eklenebilir
+                .build();
+    }
+
+    public static CustomerDto createTestCustomerDto() {
+        return CustomerDto.builder()
+                .name("John Doe")
+                .passwordHash("hashedpassword")
+                .favoriteProductIds(null) // Test senaryosunda gerekirse bir liste eklenebilir
+                .build();
+    }
 }
