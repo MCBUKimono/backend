@@ -21,7 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "rewiews")
+@Table(name = "reviews")
 public class ReviewEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "review_id_seq")

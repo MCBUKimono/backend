@@ -261,4 +261,24 @@ public final class TestDataUtil {
                 .build();
     }*/
 
+    public static ProductSnapshotEntity createTestProductSnapshotEntity() {
+        return ProductSnapshotEntity.builder()
+                .product(null)
+                .invoice(null) // Gerekirse bir InvoiceEntity eklenebilir
+                .priceCents(10000)
+                .taxPer1000(200)
+                .discountPer1000(500)
+                .build();
+    }
+
+    public static ProductSnapshotDto createTestProductSnapshotDto() {
+        return ProductSnapshotDto.builder()
+                .productId(null)
+                .invoiceId(null) // Gerekirse mevcut bir InvoiceEntity ID kullanabilirsiniz
+                .priceCents(10000)
+                .taxPer1000(200)
+                .discountPer1000(500)
+                .build();
+    }
+
 }
