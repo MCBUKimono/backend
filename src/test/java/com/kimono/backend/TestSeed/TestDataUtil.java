@@ -3,6 +3,8 @@ package com.kimono.backend.TestSeed;
 import com.kimono.backend.domain.dto.*;
 import com.kimono.backend.domain.entities.*;
 
+import java.time.LocalDateTime;
+
 
 public final class TestDataUtil {
     private TestDataUtil(){
@@ -127,6 +129,22 @@ public final class TestDataUtil {
         return ReviewImageDto.builder()
                 .reviewId(null)
                 .displayOrder(123123)
+                .build();
+    }
+
+    public static SessionEntity createTestSessionEntity() {
+        return SessionEntity.builder()
+                .customer(null) // Test senaryolarında gerekirse CustomerEntity oluşturulabilir
+                .token("test-token")
+                .expirationDate(LocalDateTime.now().plusDays(1))
+                .build();
+    }
+
+    public static SessionDto createTestSessionDto() {
+        return SessionDto.builder()
+                .customerId(null) // Test senaryolarında gerçek bir müşteri ID kullanılabilir
+                .token("test-token")
+                .expirationDate(LocalDateTime.now().plusDays(1))
                 .build();
     }
 
