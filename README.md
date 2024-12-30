@@ -1,6 +1,6 @@
 # Kimono Backend
 
-Kimono backend. API and business logic. *(olacak.)*
+Kimono backend API
 
 ## Directory Structure
 
