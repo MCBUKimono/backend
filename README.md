@@ -81,8 +81,8 @@ Your PostgreSQL database is now ready to use with the application.
 Install dependencies with Maven and start a development server:
 
 ```bash
-mvn clean install
-mvn spring-boot:run
+./mvnw clean install
+./mvnw spring-boot:run
 ```
 
 ## Testing
@@ -90,7 +90,7 @@ mvn spring-boot:run
 Unit and integration tests are written using JUnit. Run the tests using Maven:
 
 ```bash
-mvn test
+./mvnw test
 ```
 
 ## Building
@@ -98,7 +98,7 @@ mvn test
 To create a production build of the application:
 
 ```bash
-mvn clean package
+./mvnw clean package
 ```
 
 The resulting JAR file can be found in the `target/` directory.
