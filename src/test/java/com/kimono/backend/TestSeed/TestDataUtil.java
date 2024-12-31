@@ -248,7 +248,7 @@ public final class TestDataUtil {
                 .invoiceName("John Doe")
                 .paymentMethod(PaymentMethod.CREDIT_CARD)
                 .totalAmountCents(15000)
-                .productSnapshotIds(List.of(1))
+                .productSnapshotIds(null)
                 .build();
     }
 
