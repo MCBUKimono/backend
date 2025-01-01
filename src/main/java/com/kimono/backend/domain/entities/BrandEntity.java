@@ -19,7 +19,8 @@ import lombok.NoArgsConstructor;
 public class BrandEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "brand_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "brand_id_seq")
     private Integer id;
 
     private String name;

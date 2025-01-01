@@ -41,7 +41,7 @@ public class ProductController {
     }
 
     @GetMapping(path = "/product")
-    public ResponseEntity<List<ProductDto>> getProduct() {
+    public ResponseEntity<List<ProductDto>> getProducts() {
         List<ProductEntity> productEntities = productService.findAll();
 
         List<ProductDto> productDtos = productEntities.stream().map(mapper::mapTo).collect(Collectors.toList());

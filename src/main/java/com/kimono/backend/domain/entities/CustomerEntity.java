@@ -39,6 +39,8 @@ public class CustomerEntity {
     )
     private List<ProductEntity> favoriteProducts;
 
+    private String email;
+
     private String passwordHash;
 
     @OneToMany(mappedBy = "customer")

@@ -26,7 +26,8 @@ import java.util.List;
 public class ProductEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "product_id_seq")
     private Integer id;
 
     private String name;
